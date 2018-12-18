@@ -1,0 +1,400 @@
+@media screen and (max-width: 1024px)  { 
+    header{
+        display: flex;
+        height: $Vcell*2.5;
+        position: fixed;
+        top: 0;
+        z-index: 500;
+            ul{
+                height: $Vcell*2.5;
+                width: 100vw;
+                display: flex;
+                flex-direction: row;
+                li{
+                    width: 100vw*0.5;
+                    height: 100%;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    background-size: 23px;
+                    &:nth-of-type(1){
+                        background-image: url(../img/icon_video.svg);
+                        background-color: $main;
+                    }
+                    &:nth-of-type(2){
+                        background-image: url(../img/icon_desktop.svg);
+                        background-color: $secondary;
+                    }
+                    &:nth-of-type(3){
+                        background-image: url(../img/icon_audio.svg);
+                        background-color: $grey3;
+                    }
+                    &:nth-of-type(4){
+                        background-image: url(../img/icon_led.svg);
+                        background-color: #e0e0e0;
+                    }
+                    &:nth-of-type(5){
+                        background-image: url(../img/icon_table.svg);
+                        background-color: #ededed;
+                    }
+                }
+            }
+    }
+    input[type="text"]{
+        width: 60vw;
+        height: $Vcell*1.2;
+    }
+    input:checked + .slider{
+        margin: unset;
+        background-color: #ffffff40;
+        border: solid white 1px;
+    }
+    input + .slider{
+        margin: unset;
+        background-color: #4d4d4d4f;
+        border: solid white 1px;
+    }
+    input[type="checkbox"] + label:before{
+        width: 25px;
+        height: 25px;
+    }
+    input[type="checkbox"] + label{
+        font-size: 1.1em;
+    }
+    button.send + label:before{
+        width: 24px;
+        height: 24px;
+    }
+    .switch{
+        transform: scale(1);
+        position: fixed;
+        top:  $Vcell*2.5;
+        z-index: 500;
+    }
+    main{
+        overflow: hidden;
+        justify-content: unset !important;
+        align-items: unset;
+        .modul{
+            width: 100vw;
+            position: absolute;
+            height: 100vh;
+            display: flex;
+            opacity: 0;
+            transition: $main-transition;
+            border-radius: unset;
+            margin: unset;
+            padding-top: $Vcell*3;
+            border: unset; 
+            &.visible{
+                // display: flex;
+                opacity: 1;
+                z-index: 100;
+            }
+            h1{
+                position:fixed;
+                left: 0;
+                right: 0;
+                top:  $Vcell*2.5;
+                color: $white;
+                font-size: 1.4em;
+                padding: 0 $Vcell/2;
+                z-index: 100;
+                border-radius: unset;
+            }
+            h2{
+                font-size: 1.2em;
+            }
+            .disable{
+                top: $Vcell*4.5;
+                position: fixed;
+                height: 100%;
+            }
+            span{
+                font-size: 1em;
+                font-weight: 200;
+                margin-left: 12px;
+                &.slider{
+                    margin-left: unset !important;
+                }
+            }
+            .contentInfo{
+                top: $Vcell*4.5;
+                position: fixed;
+                height: 100vh - $Vcell*7.5;
+                &.showInfo{
+            
+                }
+            }
+        }
+        .wrapper{
+            width: unset;
+        }
+        section{
+            min-height: 20vh;
+            position: relative;
+            top: $Vcell*2;
+            ul{
+                li{  
+                    width: 100%;
+                    height: $Vcell*2.5;
+                    .slider{
+                        width: 60vw;
+                    }
+                }
+            }
+            &.scale{
+               li{ 
+                   width: 100%;
+                }
+            }
+            .noUi-horizontal{
+                height: 10px;
+                .noUi-handle{
+                    width: 28px;
+                    height: 38px;
+                    left: unset;
+                    top: -16px;
+                    right: -24px !important;
+                }
+            }
+            .noUi-vertical{
+                width: 10px;
+                .noUi-handle{
+                    height: 28px;
+                    width: 38px;
+                    left: unset;
+                    top: -16px;
+                    right: -24px !important;
+                }
+            }
+        }
+        #video,
+        #desktop,
+        #table,
+        #audio,
+        #led{
+            width:100vw;
+            height: 100vh - $Vcell*2;
+            
+        }
+
+        #video{
+            height: unset;
+            overflow: scroll;
+            h1{
+                background-color: $main;
+                position: fixed;
+                top: $Vcell*2.5;
+                z-index: 500;
+            }
+            .player{
+                justify-content: center;
+                .videoPlayer{
+                    #videoProgress{
+                        width: 100%;
+                    }
+                    .navFolder{
+                        width: 100px;
+                    }
+                }
+            }
+            section{
+                &.fx{
+                    .wrapper{
+                       display: block;
+
+                        .position{
+                            flex-direction: row; 
+                            align-items: flex-start;
+                            justify-content: space-around;
+                            border: unset;
+                            height: unset;
+             
+                            .vertical{
+                                width: $Hcell*2;
+                                height: $Vcell*8;
+
+                            }
+                        }
+                    }
+                }
+                &.player{
+                    .videoPlayer{
+                        #videoProgress{
+                            width: 70vw;
+                        }
+                        .navFolder{
+                            width: 20vw;
+                            button{
+                                width: 50px;
+                                height: 50px;
+                            }
+                        }
+                    }
+                }
+                &.source{
+                    height: $Vcell*4;
+                    .wrapper{
+                        height: $Vcell*6;
+                        flex-direction: row;
+                        align-items: flex-start;
+                        span{
+                            margin: 0;
+                        }
+                        div{
+                            position: relative;
+                            margin-top: 12px;
+                            height: unset;
+                            p{
+                                font-size: 1em;
+                                position: absolute;
+                                bottom: -25px;
+                            }
+                            label{
+                                align-items: center;
+                            }
+                        }
+                        div + div{
+                            margin-left: unset;
+                        }
+                    }
+                    .folder{
+                        width: 80px;
+                        height: 65px;
+                        background-size: cover;
+                    }
+                }
+                &.source{
+                    height: $Vcell*6;
+                }
+                
+            }
+        }
+        #desktop{
+            h1{
+                background-color: $secondary;
+            }
+            input:checked + .slider{
+                background-color: $secondary;
+            }
+            .wrapper{
+                height: 50vh;
+                .room,
+                .canvas{
+                    width:50vw;
+                    height: 50vw;
+                    li{
+                        label{
+                            &:before{
+                                width: 40vw;
+                            }
+                        }
+                    }
+                    .table{
+                        width: 28vw;
+                        height: 38vw;
+                        .tableCanvas{
+                            width: 24vw;
+                            height: 34vw;
+                            li{
+                                label{
+                                    &:before{
+                                        width: 10vw;
+                                        height: 15vw;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        #audio,
+        #led,
+        #table{
+            h1{
+                background-color: $grey3;
+            }
+        }
+        #audio{
+            input:checked + .slider{
+                background-color: $grey3;
+            }
+        }
+        #led{
+            margin-top: 0;
+            h1{
+                background-color: #e0e0e0;
+            }
+            input:checked + .slider{
+                background-color: #e0e0e0;
+            }
+        }
+        #table{
+            bottom: unset;
+            h1{
+                background-color:#ededed;
+            }
+            input:checked + .slider{
+                background-color: #ededed;
+            }
+            
+        }
+        #tools{
+            background-color: $grey1;
+            position: fixed;
+            bottom: 0;
+            z-index: 101;
+            height: $Vcell*3 !important;
+            width: 100vw;
+            opacity: 1;
+            background-color: $grey1;
+            border-top:  $grey2 solid 1px;
+            border-radius: unset;
+            height: $Vcell*3;
+            margin: unset;
+            padding: unset;
+            flex-direction: row;
+            padding: $Vcell/2;
+            h1.title{
+                color: $black;
+                border: unset;
+                display: none;
+            }
+            .controls{
+                button{
+                    width: 120px;
+                }
+            }
+            .modal{
+                bottom: $Vcell*3.5;
+                width: 96vw;
+                li{
+                    height: $Vcell*1.5!important;
+                }
+                h3{
+                height: $Vcell;
+                font-weight: 200;
+                }
+            }
+            
+        }
+        button{
+            &.info{
+                position: fixed;
+                margin: unset;
+                right: 10px;
+                bottom: 10px;
+                z-index: 200;
+            }
+        }
+        button.send + label{
+            font-size: 1em;
+        }
+        button.send + label:before{
+            width: 26px;
+            height: 26px;
+        }
+    }
+} 
+

@@ -1,0 +1,84 @@
+@media only screen and (max-width: 425px){
+    header{
+        ul{
+            li{
+                background-size: 22px;
+            }
+        }
+    }
+    main{
+        section{
+            ul{
+                li{
+                    height: $Vcell*3;
+                    span{
+                        margin-left: 12px;
+                    }
+                    .slider{
+                        width: 45vw;
+                    }
+                }
+            }
+        }
+        .modul{
+            span{
+                font-size: 1em;
+            }
+        }
+        h1{
+            height: $Vcell*2.5;
+        }
+        #desktop {
+            .wrapper {
+                height: 50vh;
+                .canvas,
+                .room{
+                    width: 70vw;
+                    height: 70vw;
+                    li{
+                        label{
+                            &:before{
+                                width: 60vw;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        #video {
+            section{
+                &.source{
+                    .wrapper{
+                        div{
+                            height: 70px;
+                            label{
+                                width: 60px;
+                                height: 50px;
+                                span{
+                                    width: 60px;
+                                    height: 50px;
+                                }
+                            }  
+                            p{
+                                font-size: 0.8em;
+                            }
+                        }
+                    }
+                }
+                &.player{
+                    height: $Vcell*6;
+                }
+                &.fx{
+
+                }
+            }
+        }
+        #tools{
+            height: $Vcell*4;
+        }
+    }
+    .switch{
+        transform: scale(0.8);
+    }
+
+} 

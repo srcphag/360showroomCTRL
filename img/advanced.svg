@@ -1,0 +1,15 @@
+<svg id="baseline-build-24px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29 29">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+      }
+
+      .cls-2 {
+        fill: #5b5b5b;
+      }
+    </style>
+  </defs>
+  <path id="Path_24" data-name="Path 24" class="cls-1" d="M0,0H29V29H0Z"/>
+  <path id="Path_25" data-name="Path 25" class="cls-2" d="M27.23,22.729l-11-11A7.755,7.755,0,0,0,14.422,3.4,7.988,7.988,0,0,0,5.48,1.825l5.2,5.2L7.051,10.646,1.734,5.45a7.787,7.787,0,0,0,1.571,8.942A7.755,7.755,0,0,0,11.643,16.2l11,11a1.168,1.168,0,0,0,1.692,0l2.779-2.779a1.088,1.088,0,0,0,.121-1.692Z" transform="translate(0.199 0.229)"/>
+</svg>

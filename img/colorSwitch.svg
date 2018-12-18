@@ -1,0 +1,15 @@
+<svg id="baseline-invert_colors-24px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 37.537 37.537">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+      }
+
+      .cls-2 {
+        fill: #5b5b5b;
+      }
+    </style>
+  </defs>
+  <path id="Path_30" data-name="Path 30" class="cls-1" d="M37.537,0H0V37.537H37.537Z"/>
+  <path id="Path_31" data-name="Path 31" class="cls-2" d="M25.365,11.122,16.512,2.27,7.66,11.122a12.514,12.514,0,1,0,17.7,0ZM16.512,29.359A9.378,9.378,0,0,1,9.881,13.343L16.512,6.7Z" transform="translate(2.256 1.28)"/>
+</svg>

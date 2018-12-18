@@ -1,0 +1,15 @@
+<svg id="baseline-skip_next-24px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #5b5b5b;
+      }
+
+      .cls-2 {
+        fill: none;
+      }
+    </style>
+  </defs>
+  <path id="Path_9" data-name="Path 9" class="cls-1" d="M6,31,23.708,18.5,6,6ZM26.833,6V31H31V6Z" transform="translate(6.5 6.5)"/>
+  <path id="Path_10" data-name="Path 10" class="cls-2" d="M0,0H50V50H0Z"/>
+</svg>

@@ -1,0 +1,47 @@
+/play           b
+/back           b
+/next           b
+/mute           b
+/volume         f
+/volumein       f
+/scene1         b
+/scene2         b
+/scene3         b
+/scene4         b
+/source1        b
+/source2        b
+/source3        b
+/source4        b
+/levelsin       f
+/levelsout      f
+/vidY           f
+/height         f
+/led            b
+/sat            f
+/bright         f
+/ledon          b
+/randomled      b
+/canvas1        b
+/canvas2        b
+/canvas3        b
+/canvas4        b
+/canvas5        b
+/canvasop       f
+/P5_canvas1     b
+/P5_canvas2     b   
+/P5_canvas3     b
+/P5_canvas4     b
+/P5_canvasop    f
+/reset          b
+/reboot         b
+
+new
+/swvid          b
+/swcanvas       b
+/swtable        b
+
+192.168.1.82
+Port (outgoing): 8001
+Port (incoming): 9000
+
+http://opensoundcontrol.org/introduction-osc

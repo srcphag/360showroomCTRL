@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 241.5">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        fill: none;
+      }
+
+      .cls-2 {
+        stroke: #8ee8ff;
+        stroke-width: 3px;
+      }
+
+      .cls-3 {
+        fill: #5b5b5b;
+      }
+    </style>
+  </defs>
+  <g id="Group_124" data-name="Group 124" transform="translate(-618 -1199.5)">
+    <rect id="Rectangle_604" data-name="Rectangle 604" class="cls-1" width="240" height="240" transform="translate(618 1201)"/>
+    <g id="Group_123" data-name="Group 123" transform="translate(144.121 413.5)">
+      <path id="Intersection_1" data-name="Intersection 1" class="cls-2" d="M80.882,112.439l-.342.342V112.1L0,31.557a120.309,120.309,0,0,1,162.09-.326L81.224,112.1v.684Z" transform="translate(512.744 787.5)"/>
+      <g id="baseline-videocam-24px_1_" data-name="baseline-videocam-24px (1)" transform="translate(576.609 925.167) rotate(-90)">
+        <path id="Path_18" data-name="Path 18" class="cls-1" d="M0,0H34.719V34.719H0Z"/>
+        <path id="Path_19" data-name="Path 19" class="cls-3" d="M20.253,6.51V1.447A1.451,1.451,0,0,0,18.806,0H1.447A1.451,1.451,0,0,0,0,1.447V15.913A1.451,1.451,0,0,0,1.447,17.36h17.36a1.451,1.451,0,0,0,1.447-1.447V10.85l5.787,5.787V.723Z" transform="translate(4.34 8.68)"/>
+      </g>
+    </g>
+  </g>
+</svg>

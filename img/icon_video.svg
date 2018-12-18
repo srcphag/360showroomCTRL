@@ -1,0 +1,15 @@
+<svg id="baseline-play_arrow-24px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 35 35">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+      }
+
+      .cls-2 {
+        fill: none;
+      }
+    </style>
+  </defs>
+  <path id="Path_1" data-name="Path 1" class="cls-1" d="M8,5V25.417L24.042,15.208Z" transform="translate(3.667 2.292)"/>
+  <path id="Path_2" data-name="Path 2" class="cls-2" d="M0,0H35V35H0Z"/>
+</svg>

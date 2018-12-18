@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 32">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #5b5b5b;
+      }
+    </style>
+  </defs>
+  <g id="Group_125" data-name="Group 125" transform="translate(-53 -131)">
+    <rect id="Rectangle_605" data-name="Rectangle 605" class="cls-1" width="6" height="32" transform="translate(53 131)"/>
+    <rect id="Rectangle_606" data-name="Rectangle 606" class="cls-1" width="6" height="32" transform="translate(72 131)"/>
+  </g>
+</svg>

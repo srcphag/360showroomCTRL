@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Showroom360_CTRL</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i" rel="stylesheet">
+            
+    <script src="js/apiCall.js"></script>
+    <script src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="js/nouislider.js"></script>
+    <script src="js/jquery.selectric.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="https://swisnl.github.io/jQuery-contextMenu/dist/jquery.contextMenu.js" type="text/javascript"></script>
+    <script src="https://swisnl.github.io/jQuery-contextMenu/dist/jquery.ui.position.min.js" type="text/javascript"></script>
+    <script src="https://swisnl.github.io/jQuery-contextMenu/js/main.js" type="text/javascript"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/roundSlider/1.3.2/roundslider.min.js"></script>
+    <script src="js/ohsnap.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+
+</head>
+<body id="index">
+<div id="ohsnap"></div>
+<div class="grid-container">
+<!-- //////////////////////////////////////////////
+//  header
+////////////////////////////////////////////// -->
+    <header>
+          <ul>
+              <li id="toggleVideo"></li>
+              <li id="toggleDesktop"></li>
+              <li id="toggleAudio"></li>
+              <li id="toggleLed"></li>
+              <li id="toggleTable"></li>
+          </ul>
+    </header>
+    <main>
+<!-- //////////////////////////////////////////////
+//  video
+////////////////////////////////////////////// -->
+        <div id="video" class="modul visible">
+            <h1>Video 360             <label class="switch button" >
+                <input id="swVid" type="checkbox" checked onclick="updateInfo('swVid')">
+                <span class="slider round"></span>
+            </label></h1>
+            <div class="wrapper">
+            <section class="player">
+
+                <div class="videoPlayer">
+                    <input type="checkbox" class="play" onclick="updateInfo('play')" id="play">
+                    <label for="play"></label>
+                    <div id="videoProgress" class="levels"></div><span></span>
+                    <div class="navFolder">
+                        <button id="back" onclick="updateInfo('back')">
+                        <button id="next" onclick="updateInfo('next')">
+                    </div>
+
+                </div>
+
+                <div class="videoOptions">
+                    <div>
+                        <input type="checkbox" class="send" onclick="updateInfo('loop')" id="loop">
+                        <label for="loop">Loop video</label>
+                    </div>
+                    <div>
+                        <span>File 2/8</span>
+                    </div>
+                </div>
+                    
+            </section>
+            <section class="source">
+                <h2>Folders</h2>
+                <div class="wrapper">
+                    <div>
+                        <label>
+                            <input id="source1" type="radio" name="source" checked onclick="updateInfo('source1')">
+                            <span class="button folder"></span>
+                        </label>
+                        <p>Generic</p>
+                    </div>
+                    <div>
+                        <label>
+                            <input id="source2" type="radio" name="source" onclick="updateInfo('source2')">
+                            <span class="button folder"></span>
+                        </label>
+                        <p>Corporate</p>
+                    </div>
+                    <div>
+                        <label>
+                            <input id="source3" type="radio" name="source" onclick="updateInfo('source3')">
+                            <span class="button folder"></span>
+                        </label>
+                        <p>Presentation</p>
+                    </div>
+                    <div>
+                        <label>
+                            <input id="source4" type="radio" name="source" onclick="updateInfo('source4')">
+                            <span class="button folder"></span>
+                        </label>
+                        <p>Images</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="fx">
+                <h2>FX</h2>
+                <div class="wrapper">
+                    <div class="filters">
+                        <ul>
+                            <li><div id="videoBright" class="slider"></div><span>Brightness</span></li>
+                            <li><div id="videoContrast" class="slider"></div><span>Contrast</span></li>
+                            <li><div id="videoBlur" class="slider"></div><span>Blur</span></li>
+                            <li><div id="videoSaturation" class="slider"></div><span>Saturation</span></li>   
+                        </ul>
+                    </div>
+
+                    <div class="position">
+                        <ul class="vertical">
+                            <li><div id="videoHeight"></div><span>Height</span></li>
+                        </ul>
+                        <div class="cameraPosition">
+                        <div id="slider"></div>   
+                                <img src="img/video.svg" class="videoImg">
+                                <span>Position</span>
+                        </div>    
+                    </div>
+                </div>
+                <div class="text">
+                    <ul>
+                        <h2>Text</h2>         
+                        <li class="noBorder">
+                            <input type="checkbox" class="send" onclick="updateInfo('WellcomeText')" id="WellcomeText">
+                            <label for="WellcomeText">Wellcome Text</label>
+                        </li> 
+                    </ul>
+            </div>
+            </section>
+            <!-- <h1>ADmira Showroom360 CTRL</h1> -->
+            <button id="infoVideo" class="info"></button>
+        </div>
+        <div class="contentInfo">
+            <div class="wrapper">
+                <h3>Player de Video 360</h3>
+                <p>
+                   Este módulo controla la reproducción de vídeo 360 en las paredes del espacio.
+                </p>
+                <h4>Folders</h4>
+                <p>
+                   Los archivos a reproducir se encuentran en carpetas dentro del PC dedicado a la gestión del espacio, 
+                   las carpetas se usan para separar distintos escenarios de uso, siendo estos:
+                </p>
+                <ul>
+                    <li class="headerList"> Carpetas</li>
+                    <li> <span>Generic:</span>Contiene videos 360 genéricos que representan distintos espacios naturales</li>
+                    <li> <span>Corporate:</span>Contiene material corporativo de la empresa, ambientes de marca y otro tipo de material referente a la compañía</a></li>
+                    <li> <span>Meeting:</span></a>Este directorio es usado para la reproducción de material relacionado con un evento en concreto, como una visita o una demostración.</li>
+                    <li> <span>Images:</span></a>En este directorio encontraremos exclusivamente entornos 360 compuestos por imágenes estáticas.</li>
+                </ul>
+                <p>
+                    Para conmutar entre un directorio y otro, seleccionaremos el icono de la carpeta que queramos reproducir.
+                    Automáticamente el player comenzará a reproducir el contenido del directorio, comenzando por el primer fichero, para navegar entre los distintos ficheros del directorio solo tenemos que pulsar en los botones
+                    <span>Atrás</span> y <span>Siguiente</span>.
+                </p>
+                <h4>FX</h4>
+                <p>
+                   Desde el apartado FX podremos añadir efectos y controlar posición de la reproducción de la reproducción de video 360.
+                </p>
+                    <ul>
+                        <li class="headerList">Efectos</li>
+                        <li> <span>Brightness:</span>Controla el brillo del vídeo en reproducción</li>
+                        <li> <span>Contrast:</span>Controla el contraste del vídeo en reproducción</li>
+                        <li> <span>Saturation:</span>Controla la saturación del vídeo en reproducción</li>
+                        <li> <span>Blur:</span>Añade un filtro de difuminado sobre el vídeo en reproducción</li>
+                    </ul>
+                    <ul>
+                        <li class="headerList">Posición</li>
+                        <li> <span>Height:</span>Controla la altura del punto de vista del entorno 360</li>
+                        <li> <span>Position:</span>Controla la rotación relativa del entorno 360</li>
+                    </ul>
+                    <h4>Apagar la reproducción de video 360</h4>
+                    <p>  Para anular la reproducción de video 360 en el espacio, pulsa el<img class="intraText" src="img/info/switch.png"></p>
+            </div>
+        </div>
+        <div class="disable">
+            <span>PLAYER DISABLED
+                <p>Push the module switch to enable it!</p>
+            </span>
+        </div>
+    </div>
+<!-- //////////////////////////////////////////////
+//  desktop
+////////////////////////////////////////////// -->
+        <div class="wrapper">
+            <div id="desktop" class="modul">
+                <h1>Project Desktop
+                    <label class="switch button">
+                        <input id="swDesk" type="checkbox" checked onclick="updateInfo('swDesk')">
+                        <span class="slider round"></span>
+                    </label>
+                </h1>
+                    <section>
+                        <div class="wrapper">
+                                <div class="room">
+                                    <div class="table">
+                                            <span class="chair"></span>
+                                            <span class="chair left"></span>
+                                            <span class="chair left"></span>
+                                            <span class="chair left"></span>
+                                            <span class="chair"></span>
+                                            <span class="chair right"></span>
+                                            <span class="chair right"></span>
+                                            <span class="chair right"></span>
+                                            <ul class="tableCanvas">
+                                                <li>
+                                                    <input type="checkbox" class="send red" onclick="updateInfo('tableCanvas1')" id="tableCanvas1">
+                                                    <label for="tableCanvas1"></label>
+                                                </li>
+                                                <li>
+                                                    <input type="checkbox" class="send red" onclick="updateInfo('tableCanvas2')" id="tableCanvas2">
+                                                    <label for="tableCanvas2"></label>
+                                                </li>
+                                                <li>
+                                                    <input type="checkbox" class="send red" onclick="updateInfo('tableCanvas3')" id="tableCanvas3">
+                                                    <label for="tableCanvas3"></label>
+                                                </li>
+                                                <li>
+                                                    <input type="checkbox" class="send red" onclick="updateInfo('tableCanvas4')" id="tableCanvas4">
+                                                    <label for="tableCanvas4"></label>
+                                                </li>
+                                            </ul>                  
+                                    </div>  
+                                    <ul class="canvas">
+                                            <li>
+                                                <input type="checkbox" class="send red" onclick="updateInfo('canvas1')" id="canvas1">
+                                                <label for="canvas1"></label>
+                                                <span class="p3">P3</span>   
+                                            </li>
+                                            <li> 
+                                                <input type="checkbox" class="send red" onclick="updateInfo('canvas2')" id="canvas2">
+                                                <label for="canvas2"></label>
+                                                <span class="p4">P4</span> 
+                                            </li>
+                                            <li>
+                                                <input type="checkbox" class="send red" onclick="updateInfo('canvas3')" id="canvas3">
+                                                <label for="canvas3"></label>
+                                                <span class="p1">P1</span>
+                                            </li>
+                                            <li>
+                                                <input type="checkbox" class="send red" onclick="updateInfo('canvas4')" id="canvas4">
+                                                <label for="canvas4"></label>
+                                                <span class="p2">P2</span>
+                                            </li> 
+                                        </ul> 
+                                </div>
+                        </div>
+                    </section>
+                    <section class="scale">
+                        <h2>Scale</h2>
+                        <ul>
+                            <li><div id="canvasScale" class="slider"></div><span>Desktop Size</span></li>
+                            <li><div id="tableCanvasScale" class="slider"></div><span>Desktop Table Size</span></li>
+                        </ul>
+                    </section>
+                    <button id="infoDesktop" class="info"></button>    
+                    <div class="contentInfo">
+                        <div class="wrapper">
+                        <h3>Proyectar desde una fuente externa</h3>
+                            <p>
+                                Este módulo controla la proyección de nuestro escritorio en las paredes de la sala.
+                                Desde aquí podremos seleccionar donde queremos proyectar y que tamaño tendrá esa proyección en la pared.
+                            </p>
+                            <h4>Como Proyectar</h4>
+                                <p>
+                                    Para enviar la señal de vídeo de nuestro equipo a nuestro software, usamos el hardware Google Chromecast.
+                                    Para conectarnos a Chromecast debemos de:
+                                </p>
+                                <ul>
+                                    <li> Estar conectados a la Wifi Admira Showroom</li>
+                                    <li> Tener instalado en nuestro equipo el navegador <a href="https://www.google.com/intl/es_ALL/chrome/">Google Chrome</a></li>
+                                </ul>
+                                <img src="img/info/img1.png"/>
+                                <p>
+                                    Ahora con nuestro Chrome abierto, pulsaremos en el botón de opciones del navegador, que se encuentra arriba a la derecha.
+                                    Veremos una pequeña ventana en el centro, donde aparecerá nuestro dispositivo Chromecast.
+                                    En la parte superior de esta ventana, podremos conmutar entre:
+                                </p>
+                                <ul>
+                                        <li> Dispositivo al que enviar la señal</li>
+                                        <li> Seleccionar la fuente de proyección</a></li>
+                                </ul>
+                                <p>
+                                    Para proyectar, Chromecast nos da dos opciones:
+                                </p>
+                                    <ul>
+                                        <li> La posibilidad de proyectar solo la ventana de Google Chrome</li>
+                                        <li> La posibilidad de proyectar todo nuestro escritorio</a></li>
+                                    </ul>
+                                <p>
+                                  Una vez seleccionado fuente de proyección y dispositivo Chromecast (Garage), pulsamos transmitir.
+                                  Ahora nuestra señal de vídeo está siendo enviada a Chromecast, ahora solo queda definir donde queremos que esa señal se proyecte, 
+                                  para ello utilizaremos los botones ubicados en este módulo, pudiendo seleccionar tanto proyectar en cada una de las paredes, así como en determinadas partes de la mesa.
+                                  Es tan sencillo como pulsar para mostrar la señal y volver a pulsar para ocultarla.
+                                </p>
+                                <h4>Cambiar el tamaño de la proyección</h4>
+                                <p>
+                                    Para escarlar nuestra proyección disponemos de dos controles separados:
+                                    <ul>
+                                        <li><span>Desktop Size:</span>Escala la proyección/es de las pared/es</li>
+                                        <li><span>Destop Table Size</span>Escala la proyección/es ubicada/as en la mesa</a></li>
+                                    </ul>
+                                </p>
+                                <h4>Apagar la reproducción de video 360</h4>
+                                <p>  Para anular la reproducción de video 360 en el espacio, pulsa<img class="intraText" src="img/info/switch.png"></p>
+                        </div>
+                    </div>   
+                    <div class="disable">
+                        <span>PROYECTION DISABLED
+                            <p>Push the module switch to enable it!</p>
+                        </span>
+                    </div>         
+                </div>
+<!-- //////////////////////////////////////////////
+//  table
+////////////////////////////////////////////// -->            
+                <div id="table" class="modul">
+                    <h1>Table Control
+                        <label class="switch button">
+                            <input id="swTable" type="checkbox" checked onclick="updateInfo('swTable')">
+                            <span class="slider round"></span>
+                        </label>
+                    </h1>
+                    <section>
+                        <ul>
+                            <div class="checkRow">
+                                <li class="noBorder">
+                                    <input type="checkbox" class="send" onclick="updateInfo('tableWhite')" id="tableWhite">
+                                    <label for="tableWhite">White table</label>
+                                </li>
+                                <li class="noBorder">
+                                    <input type="checkbox" class="send" onclick="updateInfo('tableText')" id="tableText">
+                                    <label for="tableText">Table Text</label>
+                                </li>
+                            </div>
+                            <li><div id="tableBright" class="slider"></div><span>Brightness</span></li>
+                            <li><div id="tableBlur" class="slider"></div><span>Blur</span></li>
+                        </ul>
+                    </section>
+                    <button id="infoTable" class="info"></button>
+                    <div class="contentInfo">
+                        <div class="wrapper">
+                            <h3>Control de proyección en mesa</h3>
+                                <p>
+                                Este modulo controla parámetros de la proyección sobre la mesa.
+                                </p>
+                            <h4>Controles</h4>
+                                <ul>
+                                    <li><span>White Table</span>Proyecta luz blanca sobre la mesa, si está desactivado (por defecto) el proyector emitirá la señal de vídeo enviada por el módulo de reproducción de video</li>
+                                    <li><span>Brightness:</span> Controla específicamente el brillo de la señal proyectada sobre la mesa</li>
+                                    <li><span>Blur:</span> Controla específicamente el difuminado aplicado sobre la señal proyectada en la mesa</li>
+                                </ul>
+                                <h4>Apagar la proyección sobre la mesa</h4>
+                                <p> Para anular la proyección sobre la mesa, pulsa<img class="intraText" src="img/info/switch.png"></p>
+                            </div>
+                    </div>
+                    <div class="disable">
+                        <span>TABLE PROYECTOR OFF
+                            <p>Push the module switch to enable it!</p>
+                        </span>
+                    </div> 
+                </div>
+        </div>
+<!-- //////////////////////////////////////////////
+//  audio
+////////////////////////////////////////////// -->
+<div class="wrapper">
+        <div id="audio" class="modul">
+            <h1>Audio
+                <label class="switch button" >
+                    <input id="swAudio" type="checkbox" checked onclick="updateInfo('swAudio')">
+                    <span class="slider round"></span>
+                </label>
+            </h1>
+                <section class="vertical">
+                    <ul class="vertical">
+                    
+                            <li><div id="volume"></div><span>Video360</span></li>
+                            <li><div id="volumein" class="red"></div><span>Desktop</span></li>
+                       
+                        <div class="column">
+                            <li class="noBorder"><div id="levelsIn" class="levels"></div></li>
+                            <li class="noBorder"><div id="levelsOut"  class="levels"></div></li>
+                            <span>Levels</span>
+                        </div>
+                    </ul>
+
+                </section>
+                <button id="infoAudio" class="info"></button>
+                <div class="contentInfo">
+                        <div class="wrapper">
+                            <h3>Control de Audio</h3>
+                                <h4>Volumen</h4>
+                                <p>
+                                 Este módulo controla el volumen de las distintas fuentes de sonido de nuestro espacio.
+                                </p>
+                                <p>Las distintas fuentes de sonido son las siguientes:</p>
+                                <ul>
+                                    <li class="headerList"> Fuentes de sonido</li>
+                                    <li> <span>Video 360:</span>Controla el volumen del vídeo 360 en reproducción</li>
+                                    <li class="red"> <span>Desktop</span>Controla el volumen de la señal de audio externa que se encuentre proyectando en ese momento.</a></li>
+                                </ul>
+                                <p>Para controlar si existe señal de audio de una manera visual, disponemos a la derecha de dos indicadores de nivel.</p>
+                                <h4>Mutear el Audio</h4>
+                                <p>Para mutear todo el audio de la sala pulsa el botón <img class="intraText" src="img/info/switch.png"></p>
+                    </div>
+                </div>
+                <div class="disable">
+                    <span>AUDIO MUTE
+                        <p>Push the module switch to enable it!</p>
+                    </span>
+                </div>
+        </div>
+<!-- //////////////////////////////////////////////
+//  led
+////////////////////////////////////////////// -->           
+        <div id="led" class="modul">
+            <h1>LED
+                <label class="switch button">
+                    <input id="swLed" type="checkbox" checked onclick="updateInfo('swLed')">
+                    <span class="slider round"></span>
+                </label>
+            </h1>
+            <section>
+                <ul>
+                    <li><div id="ledBright" class="slider"></div><span>Bright</span></li>
+                    <li><div id="ledSat" class="slider"></div><span>Saturation</span></li>
+                    <li><div id="ledColor" class="slider"></div><span>Color</span></li>
+                    <li class="noBorder">
+                        <input type="checkbox" class="send" onclick="updateInfo('ledMode')" id="ledRandom">
+                        <label for="ledRandom">LED mode</label>
+                    </li>
+                </ul>
+            </section>
+            <button id="infoLed" class="info"></button>
+            <div class="contentInfo">
+                <div class="wrapper">
+                    <h3>Control LED</h3>
+                        <p>
+                            Este módulo controla el color y los ajustes de las luces LED de la mesa.
+                        </p>
+                        <h4>Modos</h4>
+                        <p>Las luces LED tienen dos modos</p>
+                        <ul>
+                            <li class="headerList">Modos</li>
+                            <li> <span>Auto</span>El color de la iluminación está controlado por los colores dominantes en el vídeo 360 en reproducción. Este modo es el que se encuentra activado por defecto.</li>
+                            <li> <span>Manual</span>En este modo, nosotros controlamos los valores de Tono, saturación y brillo de la luz de manera manual, quedando esta fija al valor que le hayamos configurado.</li>
+                        </ul>
+                        <h4>Ajustes de color</h4>
+                            <ul>
+                                <li class="headerList">Ajustes manuales</li>
+                                <li> <span>Brigthness</span>Controla el valor de brillo del LED</li>
+                                <li> <span>Saturation</span>Controla el valor de saturación de la luz, a menor saturación, la luz será más blanca.</li>
+                                <li> <span>Color</span>Controla el tono concreto deseado, ten en cuenta de que si la saturación está al mínimo, no percibiremos cambios en el tono!</li>
+                            </ul>
+                        <h4>Apagar las luces</h4>
+                        <p>Para mutear todo el audio de la sala pulsa el botón <img class="intraText" src="img/info/switch.png"></p>
+                </div>
+            </div>
+            <div class="disable">
+                <span>LED OFF
+                    <p>Push the module switch to enable it!</p>
+                </span>
+            </div>
+        </div>
+<!-- ///////////////////////////////////////////-->
+    <div id="tools" class="modul">
+        <div class="controls">
+            <!-- <button class="shutdown"></button> -->
+            <button class="advanced"></button>
+            <button class="text"></button>
+            <button class="colorSwitch"></button>
+            
+            <input type="checkbox" value="1" class="connected" onclick="updateInfo('connected')" id="connected">
+            <label for="connected" class="statusConnected"></label>
+        </div>
+
+        <div id="shutdown" class="modal">
+            <h3>Shutdown</h3>
+            <ul>
+                <li>
+                    <button class="send" onclick="updateInfo('shutdown')" id="shutdown"></button>
+                    <label for="shutdown">Shutdown Host computer</label>
+                </li>
+                <li>
+                    <button class="send" onclick="updateInfo('reboot')" id="reboot"></button>
+                    <label for="reboot">Restart Host computer</label>
+                </li>
+            </ul>    
+        </div>
+        <div id="advanced" class="modal">
+            <h3>Advanced</h3>
+            <ul>
+                <li>
+                    <button class="send" onclick="updateInfo('resetVideo')" id="resetVideo"></button>
+                    <label for="resetVideo">Reset video output</label>
+                </li>
+                <li>
+                    <button class="send" onclick="updateInfo('updateDesk')" id="updateDesk"></button>
+                    <label for="updateDesk">Update Desktop capture</label>
+                </li>
+                <li>
+                    <button class="send" onclick="updateInfo('resetCameras')" id="resetCameras"></button>
+                    <label for="resetCameras">Reset camera position</label>
+                </li>
+                <li>
+                    <button class="send" onclick="updateInfo('resetSenders')" id="resetSenders"></button>
+                    <label for="resetSenders">Reset video senders</label>
+                </li>
+                
+            </ul>
+        </div>
+        <div id="text" class="modal">
+            <h3>Texts & Names</h3>
+            <form>
+            <ul>
+      
+                <li class="noBorder">
+                    <input type="text" onclick="updateInfo('wellcomeName')" id="wellcomeName">
+                    <label for="wellcomeName">Wellcome text</label>
+                </li>
+     
+                <li class="noBorder">
+                    <input type="text" onclick="updateInfo('name1')" id="name1">
+                    <label for="name1">Nombre 1</label>
+                </li>
+                <li class="noBorder">
+                    <input type="text" onclick="updateInfo('name2')" id="name2">
+                    <label for="name2">Nombre 2</label>
+                </li>
+                <li class="noBorder">
+                    <input type="text" onclick="updateInfo('name3')" id="name3">
+                    <label for="name3">Nombre 3</label>
+                </li>
+                <li class="noBorder">
+                    <input type="text" onclick="updateInfo('name4')" id="name4">
+                    <label for="name4">Nombre 4</label>
+                </li>
+                <li class="noBorder">
+                    <input type="text" onclick="updateInfo('name5')" id="name5">
+                    <label for="name5">Nombre 5</label>
+                </li>
+                <li class="noBorder">
+                    <input type="text" onclick="updateInfo('name6')" id="name6">
+                    <label for="name4">Nombre 6</label>
+                </li>
+            </ul>
+        </form>    
+        </div>
+        <h1 class="title"><span>ADmira</span>Showroom360_CTRL V1.1</h1>
+    </div>
+</div>
+    </main>
+</body>
+<!-- //////////////////////////////////////////////
+//  sliders
+////////////////////////////////////////////// -->
+<script>
+//////////////////////////////////////////////
+//  circular slider
+////////////////////////////////////////////// 
+var position;
+
+$('#wellcomeName').keydown(function(){
+        $(this).val();
+        updateInfoValue('wellcomeName' , $(this).val().toString());
+});
+$('#name1').keydown(function(){
+        $(this).val();
+        updateInfoValue('name1' , $(this).val().toString());
+});
+$('#name2').keydown(function(){
+        $(this).val();
+        updateInfoValue('name2' , $(this).val().toString());
+});
+$('#name3').keydown(function(){
+        $(this).val();
+        updateInfoValue('name3' , $(this).val().toString());
+});
+$('#name4').keydown(function(){
+        $(this).val();
+        updateInfoValue('name4' , $(this).val().toString());
+});
+$('#name5').keydown(function(){
+        $(this).val();
+        updateInfoValue('name5' , $(this).val().toString());
+});
+$('#name6').keydown(function(){
+        $(this).val();
+        updateInfoValue('name6' , $(this).val().toString());
+});
+
+$("#slider").roundSlider({
+    beforeCreate: "traceEvent",
+    create: "traceEvent",
+    start: "traceEvent",
+    stop: "traceEvent",
+    change: "traceEvent",
+    drag: "traceEvent",
+    radius: 120,
+    width: 120,
+    handleSize: "0",
+    sliderType: "default",
+    value: 0,
+    startAngle: +90,
+    mouseScrollAction: 1,
+    showTooltip: 1,
+    animation: 0
+});
+function traceEvent(e){
+    position = e.value*3.60 + "deg";
+    positionSend = e.value*3.60;
+    $('main .cameraPosition .videoImg').css('transform', 'rotate(' + position + ')');
+}
+document.getElementById('slider').addEventListener('mouseover', function () {
+        var slider = document.getElementById('slider');
+        updateInfoValue('cameraPosition' , positionSend);
+    });
+
+var connectSlider = document.getElementById('videoProgress');   
+noUiSlider.create(connectSlider, {
+    start: 1,
+    connect: [true, false],
+    range: {
+        'min': 0,
+        'max': 1
+    }
+});
+
+    document.getElementById('videoProgress').addEventListener('mousemove', function () {
+        var slider = document.getElementById('videoProgress');
+        updateInfoValue('videoProgress' , slider.noUiSlider.get().toString());
+    });
+//////////////////////////////////////////////   
+var connectSlider = document.getElementById('volume');
+noUiSlider.create(connectSlider, {
+    start: 0.3,
+    connect: [true, false],
+    orientation: 'vertical',
+    direction: 'rtl',
+    range: {
+        'max': 1,
+        'min': 0,
+      
+    }
+});
+    document.getElementById('volume').addEventListener('mousemove', function () {
+        var slider = document.getElementById('volume');
+        updateInfoValue('volume' , slider.noUiSlider.get().toString());
+    });
+//////////////////////////////////////////////
+var connectSlider = document.getElementById('volumein');
+noUiSlider.create(connectSlider, {
+    start: 0.3,
+    connect: [true, false],
+    direction: 'rtl',
+    orientation: 'vertical',
+    range: {
+        'min': 0,
+        'max': 1
+    }
+});
+    document.getElementById('volumein').addEventListener('mousemove', function () {
+        var slider = document.getElementById('volumein');
+        updateInfoValue('volumein' , slider.noUiSlider.get().toString());
+    });
+//////////////////////////////////////////////
+var connectSlider = document.getElementById('levelsIn');
+noUiSlider.create(connectSlider, {
+    start: 0,
+    connect: [true, false],
+    orientation: 'vertical',
+    range: {
+        'min': 0,
+        'max': 1
+    }
+});
+    document.getElementById('levelsIn').addEventListener('mousemove', function () {
+            var slider = document.getElementById('levelsIn');
+            updateInfoValue('levelsIn' , slider.noUiSlider.get().toString());
+    });
+//////////////////////////////////////////////
+var connectSlider = document.getElementById('levelsOut');
+noUiSlider.create(connectSlider, {
+    start: 0,
+    connect: [true, false],
+    orientation: 'vertical',
+    range: {
+        'min': 0,
+        'max': 1
+    }
+});
+    document.getElementById('levelsOut').addEventListener('mousemove', function () {
+        var slider = document.getElementById('levelsOut');
+        updateInfoValue('levelsOut' , slider.noUiSlider.get().toString());
+    });
+//////////////////////////////////////////////
+var connectSlider = document.getElementById('videoBright');
+noUiSlider.create(connectSlider, {
+    start: 0.5,
+    connect: [true, false],
+    range: {
+        'min': 0,
+        'max': 1
+    }
+});
+    document.getElementById('videoBright').addEventListener('mousemove', function () {
+        var slider = document.getElementById('videoBright');
+        updateInfoValue('videoBright' , slider.noUiSlider.get().toString());
+    });
+//////////////////////////////////////////////
+var connectSlider = document.getElementById('videoContrast');
+noUiSlider.create(connectSlider, {
+    start: 0.5,
+    connect: [true, false],
+    range: {
+        'min': 0,
+        'max': 1
+    }
+});
+    document.getElementById('videoContrast').addEventListener('mousemove', function () {
+        var slider = document.getElementById('videoContrast');
+        updateInfoValue('videoContrast' , slider.noUiSlider.get().toString());
+    });
+//////////////////////////////////////////////
+var connectSlider = document.getElementById('videoBlur');   
+noUiSlider.create(connectSlider, {
+    start: 0,
+    connect: [true, false],
+    range: {
+        'min': 0,
+        'max': 1
+    }
+});
+
+    document.getElementById('videoBlur').addEventListener('mousemove', function () {
+        var slider = document.getElementById('videoBlur');
+        updateInfoValue('videoBlur' , slider.noUiSlider.get().toString());
+    });
+//////////////////////////////////////////////
+var connectSlider = document.getElementById('videoSaturation');   
+noUiSlider.create(connectSlider, {
+    start: 0.5,
+    connect: [true, false],
+    range: {
+        'min': 0,
+        'max': 1
+    }
+});
+
+    document.getElementById('videoSaturation').addEventListener('mousemove', function () {
+        var slider = document.getElementById('videoSaturation');
+        updateInfoValue('videoSaturation' , slider.noUiSlider.get().toString());
+    });
+//////////////////////////////////////////////
+var connectSlider = document.getElementById('videoHeight');   
+noUiSlider.create(connectSlider, {
+    start: 0.5,
+    orientation: 'vertical',
+    connect: [true, false],
+    range: {
+        'min': 0,
+        'max': 1
+    }
+});
+
+    document.getElementById('videoHeight').addEventListener('mousemove', function () {
+        var slider = document.getElementById('videoHeight');
+        updateInfoValue('videoHeight' , slider.noUiSlider.get().toString());
+    });
+//////////////////////////////////////////////
+var connectSlider = document.getElementById('ledBright');   
+noUiSlider.create(connectSlider, {
+    start: 0.5,
+    connect: [true, false],
+    range: {
+        'min': 0,
+        'max': 1
+    }
+});
+
+    document.getElementById('ledBright').addEventListener('mousemove', function () {
+        var slider = document.getElementById('ledBright');
+        updateInfoValue('ledBright' , slider.noUiSlider.get().toString());
+    });
+//////////////////////////////////////////////
+var connectSlider = document.getElementById('ledSat');   
+noUiSlider.create(connectSlider, {
+    start: 0.5,
+    connect: [true, false],
+    range: {
+        'min': 0,
+        'max': 1
+    }
+});
+
+    document.getElementById('ledSat').addEventListener('mousemove', function () {
+        var slider = document.getElementById('ledSat');
+        updateInfoValue('ledSat' , slider.noUiSlider.get().toString());
+    });
+//////////////////////////////////////////////
+var connectSlider = document.getElementById('ledColor');   
+noUiSlider.create(connectSlider, {
+    start: 1,
+    connect: [true, false],
+    range: {
+        'min': 0,
+        'max': 1
+    }
+});
+
+    document.getElementById('ledColor').addEventListener('mousemove', function () {
+        var slider = document.getElementById('ledColor');
+        updateInfoValue('ledColor' , slider.noUiSlider.get().toString());
+    });
+//////////////////////////////////////////////
+var connectSlider = document.getElementById('canvasScale');
+noUiSlider.create(connectSlider, {
+    start: 0.3,
+    connect: [true, false],
+    range: {
+        'min': 0,
+        'max': 1
+    }
+});
+    document.getElementById('canvasScale').addEventListener('mousemove', function () {
+        var slider = document.getElementById('canvasScale');
+        updateInfoValue('canvasScale' , slider.noUiSlider.get().toString());
+    });
+//////////////////////////////////////////////
+var connectSlider = document.getElementById('tableCanvasScale');
+noUiSlider.create(connectSlider, {
+    start: 0.3,
+    connect: [true, false],
+    range: {
+        'min': 0,
+        'max': 1
+    }
+});
+    document.getElementById('tableCanvasScale').addEventListener('mousemove', function () {
+        var slider = document.getElementById('tableCanvasScale');
+        updateInfoValue('tableCanvasScale' , slider.noUiSlider.get().toString());
+    });
+
+//////////////////////////////////////////////
+var connectSlider = document.getElementById('tableBright');
+noUiSlider.create(connectSlider, {
+    start: 0.5,
+    connect: [true, false],
+    range: {
+        'min': 0,
+        'max': 1
+    }
+});
+    document.getElementById('tableBright').addEventListener('mousemove', function () {
+        var slider = document.getElementById('tableBright');
+        updateInfoValue('tableBright' , slider.noUiSlider.get().toString());
+    });
+//////////////////////////////////////////////
+    var connectSlider = document.getElementById('tableBlur');
+noUiSlider.create(connectSlider, {
+    start: 0,
+    connect: [true, false],
+    range: {
+        'min': 0,
+        'max': 1
+    }
+});
+    document.getElementById('tableBlur').addEventListener('mousemove', function () {
+        var slider = document.getElementById('tableBlur');
+        updateInfoValue('tableBlur' , slider.noUiSlider.get().toString());
+    });
+
+
+
+
+
+$("#infoVideo").click(function(){
+    $("#video .contentInfo").toggleClass("showInfo");
+    $("#video  .info").toggleClass("closeInfo");
+});
+$("#infoAudio").click(function(){
+    $("#audio .contentInfo").toggleClass("showInfo");
+    $("#audio .info").toggleClass("closeInfo");
+});
+$("#infoLed").click(function(){
+    $("#led .contentInfo").toggleClass("showInfo");
+    $("#led .info").toggleClass("closeInfo");
+});
+$("#infoDesktop").click(function(){
+    $("#desktop .contentInfo").toggleClass("showInfo");
+    $("#desktop .info").toggleClass("closeInfo");
+});
+$("#infoTable").click(function(){
+    $("#table .contentInfo").toggleClass("showInfo");
+    $("#table .info").toggleClass("closeInfo");
+});
+
+
+$(".colorSwitch").click(function(){
+    $("main").toggleClass("black")
+});
+$(".shutdown").click(function(){
+    $("#shutdown").toggleClass("visible")
+    $("#advanced").removeClass("visible")
+});
+$(".advanced").click(function(){
+    $("#advanced").toggleClass("visible")
+    $("#shutdown").removeClass("visible")
+});
+$(".text").click(function(){
+    $("#text").toggleClass("visible")
+});
+
+
+$("#swVid").click(function(){
+    $("#video .disable").toggleClass("active")
+});
+$("#swAudio").click(function(){
+    $("#audio .disable").toggleClass("active")
+});
+$("#swLed").click(function(){
+    $("#led .disable").toggleClass("active")
+});
+$("#swDesk").click(function(){
+    $("#desktop .disable").toggleClass("active")
+});
+$("#swTable").click(function(){
+    $("#table .disable").toggleClass("active")
+});
+
+$("#resetVideo").click(function(){
+    ohSnap('Resolume Arena has been reset!', {
+        'duration':'6000'
+    }); 
+});
+$("#updateDesk").click(function(){
+    ohSnap('Capture module has been forced to refresh!', {
+        'duration':'6000'
+    }); 
+});
+$("#resetCameras").click(function(){
+    ohSnap('Virtual camera has been set to default!', {
+        'duration':'6000'
+    }); 
+});
+$("#resetSenders").click(function(){
+    ohSnap('Spout senders has been forced to refresh!', {
+        'duration':'6000'
+    }); 
+});
+$("#shutdown").click(function(){
+    ohSnap('Shutdown the host computer... You will lost the control.', {
+        'duration':'6000'
+    }); 
+});
+$("#reboot").click(function(){
+    ohSnap('Reboot sended! Please wait 5 minutes...', {
+        'duration':'6000'
+    }); 
+});
+
+$("#toggleVideo").click(function(){
+    $(".modul").removeClass("visible")
+    $("#video").toggleClass("visible")
+});
+
+$("#toggleDesktop").click(function(){
+    $(".modul").removeClass("visible")
+    $("#desktop").toggleClass("visible")
+});
+
+$("#toggleAudio").click(function(){
+    $(".modul").removeClass("visible")
+    $("#audio").toggleClass("visible")
+});
+
+$("#toggleLed").click(function(){
+    $(".modul").removeClass("visible")
+    $("#led").toggleClass("visible")
+});
+$("#toggleTable").click(function(){
+    $(".modul").removeClass("visible")
+    $("#table").toggleClass("visible")
+});
+
+</script>
+</html>
